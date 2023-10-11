@@ -1,0 +1,16 @@
+-- Script DDL para criar as tabelas no banco de dados
+
+-- Crie a tabela mestre (Produtos)
+CREATE TABLE Produtos (
+    ProdutoID INT PRIMARY KEY,
+    Nome VARCHAR(255),
+    Preco DECIMAL(10, 2)
+);
+
+-- Crie a tabela de detalhes (Itens) relacionada à tabela mestre
+CREATE TABLE Itens (
+    ItemID INT PRIMARY KEY,
+    ProdutoID INT,
+    Quantidade INT,
+    FOREIGN KEY (ProdutoID) REFERENCES Produtos(ProdutoID)
+);
