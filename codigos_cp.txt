@@ -1,0 +1,30 @@
+az sql server create --name dimdimdatabase --resource-group cpDimDim --location eastus --admin-user DimDim --admin-password SenhaComplexa123!
+
+
+
+# Crie um grupo de recursos
+az group create --name cpDimDim --location eastus
+
+# Crie o servidor SQL
+az sql server create --name dimdimdatabase --resource-group cpDimDim --location eastus --admin-user DimDim --admin-password SenhaComplexa123!
+
+# Crie um banco de dados
+az sql db create --name BancoDeDadosMestre --resource-group cpDimDim --server dimdimdatabase
+
+# Crie a tabela mestre (Exemplo: Produtos)
+az sql db table create --database BancoDeDadosMestre --resource-group cpDimDim --server dimdimdatabase --schema dbo --name Produtos
+
+# Crie a tabela de detalhes relacionada (Exemplo: Itens)
+az sql db table create --database BancoDeDadosMestre --resource-group cpDimDim --server dimdimdatabase --schema dbo --name Itens
+
+
+
+
+# Crie um grupo de recursos
+az group create --name cpDimDim --location eastus
+
+# Crie o servidor SQL
+az sql server create --name dimdimdatabase --resource-group cpDimDim --location eastus --admin-user DimDim --admin-password SenhaComplexa123!
+
+# Crie o banco de dados
+az sql db create --name BancoDeDadosMestre --resource-group cpDimDim --server dimdimdatabase
